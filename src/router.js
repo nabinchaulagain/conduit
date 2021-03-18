@@ -14,7 +14,7 @@ const routes = [
     path: '/',
     component: 'show-articles',
     action: () => {
-      import('./components/show-articles');
+      import('./components/show-articles/');
     },
   },
   {
