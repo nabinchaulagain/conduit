@@ -1,7 +1,9 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html } from 'lit-element';
+import { repeat } from 'lit-html/directives/repeat';
+import './article-list-item';
 
 /**
- * <article-list articles={Array}></article-list>.
+ * <article-list .articles={Array}></article-list>.
  *
  * @customElement
  * @litElement
@@ -36,7 +38,15 @@ class ArticleList extends LitElement {
    * @returns {String} HTML template string.
    */
   render() {
-    return html`${JSON.stringify(this.articles)}`;
+    return repeat(
+      this.articles,
+      (article) => article.slug,
+      (article) => {
+        return html`<article-list-item
+          .article="${article}"
+        ></article-list-item>`;
+      }
+    );
   }
 }
 

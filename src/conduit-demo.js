@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html, css } from 'lit-element';
 import initRouter from './router';
 
 /**
@@ -8,6 +8,20 @@ import initRouter from './router';
  * @litElement
  */
 class ConduitDemo extends LitElement {
+  /**
+   * Styles of element.
+   *
+   * @returns {String} CSS.
+   */
+  static get styles() {
+    return css`
+      main {
+        max-width: 998px;
+        margin: auto;
+      }
+    `;
+  }
+
   /**
    * Called when first rendered.
    */
