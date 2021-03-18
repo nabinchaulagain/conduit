@@ -3,7 +3,6 @@ import endPoints from '../../constants/endpoints';
 import api from '../../utils/api';
 import './article-list';
 
-// TODO: complete this page
 /**
  * <show-articles> Route component that shows list of articles.
  *
