@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import endPoints from '../../constants/endpoints';
 import api from '../../utils/api';
 import '@polymer/iron-image';
+import redirectTo from '../../utils/redirect';
 
 /**
  * <show-article> Route component that shows a single article.
@@ -72,12 +73,16 @@ class ShowArticle extends LitElement {
    * When component first renders.
    */
   async firstUpdated() {
-    const res = await api.get(
-      `${endPoints.ARTICLES_ROUTE}/${this.location.params.slug}`
-    );
+    try {
+      const res = await api.get(
+        `${endPoints.ARTICLES_ROUTE}/${this.location.params.slug}`
+      );
 
-    this.isLoading = false;
-    this.article = res.data.article;
+      this.isLoading = false;
+      this.article = res.data.article;
+    } catch (err) {
+      if (err.response && err.response.status === 404) redirectTo('/');
+    }
   }
 
   /**
