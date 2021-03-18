@@ -1,0 +1,35 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint-config-leapfrog",
+    "plugin:lit/recommended",
+    "eslint-config-airbnb-base",
+    "standard",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "allowImportExportEverywhere": true
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "require-jsdoc": "error",
+    "no-console": "error",
+    "class-methods-use-this": "off",
+    "func-names": "off",
+    "no-underscore-dangle": "warn",
+    "import/prefer-default-export": "warn",
+    "import/extensions": "warn",
+    "padding-line-between-statements": "error",
+    "jsdoc/check-tag-names": [
+      "error",
+      { "definedTags": ["customElement", "litElement", "route"] }
+    ]
+  }
+}
